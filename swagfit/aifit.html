@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Fit Wear</title>
+
+<style>
+body{
+background:#0a0a0a;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:40px;
+}
+
+.product-box{
+background:#111;
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 20px #6f00ff;
+max-width:400px;
+margin:auto;
+}
+
+img{
+width:100%;
+border-radius:10px;
+}
+
+select, button{
+margin-top:15px;
+padding:10px;
+width:80%;
+border:none;
+border-radius:10px;
+}
+
+button{
+background:#6f00ff;
+color:white;
+cursor:pointer;
+box-shadow:0 0 10px #6f00ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="product-box">
+
+<img src="aifit.jpg">
+
+<h2>AI Fit Wear</h2>
+
+<p>Smart Body Fit Clothing</p>
+
+<p>Price: ₹799</p>
+
+<select>
+<option>Select Size</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+
+<br>
+
+<button onclick="window.location.href='trial.html'">
+Try in AI Trial Room
+</button>
+
+<button onclick="orderPlaced()">
+Buy Now
+</button>
+<button onclick="shareProduct('AI Fit Wear','aifit.jpg')">
+Share with Friends
+</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+function orderPlaced(){
+document.getElementById("msg").innerHTML="✔ Your Order has been placed successfully!";
+}
+function shareProduct(name,img){
+
+localStorage.setItem("shareProduct",
+JSON.stringify({name:name,img:img}));
+
+alert("Shared to Friends ✔");
+}
+
+</script>
+
+</body>
+</html>

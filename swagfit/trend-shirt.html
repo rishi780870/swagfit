@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Trending Shirts</title>
+
+<style>
+body{
+background:#0a0a0a;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:20px;
+}
+
+.item{
+background:#111;
+padding:15px;
+border-radius:15px;
+width:200px;
+box-shadow:0 0 15px #ffaa00;
+cursor:pointer;
+}
+
+img{
+width:100%;
+border-radius:10px;
+}
+</style>
+</head>
+<body>
+
+<h1>Trending Shirts</h1>
+
+<div class="grid">
+
+<div class="item" onclick="window.location.href='product.html'">
+<img src="black shirt.avif">
+<p>Black Slim Shirt</p>
+</div>
+
+<div class="item" onclick="window.location.href='product.html'">
+<img src="white formal shirt.jfif">
+<p>White Formal Shirt</p>
+</div>
+
+<div class="item" onclick="window.location.href='product.html'">
+<img src="street print shirt.webp">
+<p>Street Print Shirt</p>
+</div>
+
+<div class="item" onclick="window.location.href='product.html'">
+<img src="denim shirt.jpg">
+<p>Denim Shirt</p>
+</div>
+
+</div>
+
+</body>
+</html>

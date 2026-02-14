@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Messages</title>
+
+<style>
+body{
+margin:0;
+background:#0a0a0a;
+font-family:Arial;
+color:white;
+}
+
+/* Tabs */
+.tabs{
+display:flex;
+justify-content:space-around;
+padding:10px;
+background:#111;
+}
+
+.tabs button{
+padding:10px 20px;
+border:none;
+background:#6f00ff;
+color:white;
+cursor:pointer;
+border-radius:10px;
+}
+
+/* Chat */
+.chat{
+display:none;
+padding:20px;
+height:80vh;
+overflow-y:auto;
+}
+
+.active{
+display:block;
+}
+
+.msg{
+padding:10px;
+margin:10px;
+border-radius:10px;
+max-width:70%;
+}
+
+.user{ background:#6f00ff; margin-left:auto; }
+.ai{ background:#111; box-shadow:0 0 10px #00f0ff; }
+.friend{ background:#222; }
+
+/* Input */
+.input{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+background:#111;
+padding:10px;
+}
+
+input{
+flex:1;
+padding:10px;
+border:none;
+border-radius:10px;
+}
+
+button.send{
+margin-left:10px;
+padding:10px;
+background:#6f00ff;
+border:none;
+color:white;
+cursor:pointer;
+}
+.header-nav{
+display:flex;
+justify-content:space-around;
+background:#111;
+padding:15px;
+box-shadow:0 0 10px #6f00ff;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.header-nav div{
+cursor:pointer;
+padding:8px 15px;
+background:#6f00ff;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="header-nav">
+
+<div onclick="goHome()">Home</div>
+<div onclick="goTrial()">Trial Room</div>
+<div onclick="goFeed()">Feed</div>
+<div onclick="goMsg()">Messages</div>
+
+</div>
+<div class="tabs">
+<button onclick="show('ai')">AI Stylist</button>
+<button onclick="show('friends')">Friends</button>
+</div>
+
+<!-- AI CHAT -->
+<div class="chat active" id="ai">
+
+<div class="msg ai">Hi 👋 Ask me for outfit ideas</div>
+
+</div>
+
+<!-- FRIEND CHAT -->
+<div class="chat" id="friends">
+
+<div class="msg friend">Rahul: Check this shirt!</div>
+
+<div class="msg friend">
+<img src="shirt.jpg" width="150"><br>
+Smart Shirt
+</div>
+
+</div>
+
+<div class="input">
+<input type="text" id="text" placeholder="Type message...">
+<button class="send" onclick="send()">Send</button>
+</div>
+
+<script>
+
+let mode="ai";
+
+function show(type){
+mode=type;
+document.getElementById("ai").classList.remove("active");
+document.getElementById("friends").classList.remove("active");
+document.getElementById(type).classList.add("active");
+}
+
+function send(){
+let txt=document.getElementById("text").value;
+if(!txt) return;
+
+let chat=document.getElementById(mode);
+
+chat.innerHTML+=`<div class="msg user">${txt}</div>`;
+
+if(mode=="ai"){
+setTimeout(()=>{
+chat.innerHTML+=`<div class="msg ai">Try Street Tee 😎</div>`;
+},500);
+}
+
+document.getElementById("text").value="";
+}
+window.onload=function(){
+
+let data = localStorage.getItem("shareProduct");
+
+if(data){
+let product = JSON.parse(data);
+
+let chat=document.getElementById("friends");
+
+chat.innerHTML += `
+<div class="msg friend">
+<img src="${product.img}" width="150"><br>
+${product.name}
+</div>
+`;
+
+localStorage.removeItem("shareProduct");
+}
+
+}
+function goHome(){
+window.location.href='swagfit.html';
+}
+
+function goTrial(){
+window.location.href='trial.html';
+}
+
+function goFeed(){
+window.location.href='feed.html';
+}
+
+function goMsg(){
+window.location.href='message.html';
+}
+</script>
+
+</body>
+</html>
