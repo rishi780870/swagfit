@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SwagFit Feed</title>
+
+<style>
+body{
+margin:0;
+background:#0a0a0a;
+font-family:Arial;
+color:white;
+}
+
+.header{
+text-align:center;
+padding:20px;
+font-size:24px;
+box-shadow:0 0 10px #6f00ff;
+}
+
+.feed{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:30px;
+padding:20px;
+}
+
+.post{
+background:#111;
+padding:15px;
+border-radius:15px;
+box-shadow:0 0 15px #6f00ff;
+width:300px;
+}
+
+.post img{
+width:100%;
+border-radius:10px;
+}
+
+.post h3{
+margin:10px 0;
+}
+
+.actions{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+}
+
+button{
+background:#6f00ff;
+border:none;
+padding:8px 12px;
+border-radius:10px;
+color:white;
+cursor:pointer;
+}
+.post{
+background:#111;
+padding:15px;
+border-radius:15px;
+box-shadow:0 0 15px #6f00ff;
+width:300px;
+opacity:0;
+transform:translateY(50px);
+animation:fadeUp 1s forwards;
+}
+
+.post:nth-child(1){ animation-delay:0.2s; }
+.post:nth-child(2){ animation-delay:0.5s; }
+.post:nth-child(3){ animation-delay:0.8s; }
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+video{
+border-radius:10px;
+box-shadow:0 0 10px #6f00ff;
+}
+.header-nav{
+display:flex;
+justify-content:space-around;
+background:#111;
+padding:15px;
+box-shadow:0 0 10px #6f00ff;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.header-nav div{
+cursor:pointer;
+padding:8px 15px;
+background:#6f00ff;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+<body>
+
+<div class="header-nav">
+
+<div onclick="goHome()">Home</div>
+<div onclick="goTrial()">Trial Room</div>
+<div onclick="goFeed()">Feed</div>
+<div onclick="goMsg()">Messages</div>
+
+</div>
+
+<div class="header">
+SwagFit Feed 🔥
+</div>
+
+<div class="feed">
+
+<div class="post">
+<video controls autoplay muted loop width="100%">
+<source src="street style video.mp4" type="video/mp4">
+</video>
+<h3>Street Style Combo</h3>
+<div class="actions">
+<button onclick="like(this)">❤️ Like</button>
+<button onclick="window.location.href='trial.html'">Try</button>
+</div>
+</div>
+
+<div class="post">
+<video controls autoplay muted loop width="100%">
+<source src="formal.mp4" type="video/mp4">
+</video>
+
+<h3>Formal Look</h3>
+<div class="actions">
+<button onclick="like(this)">❤️ Like</button>
+<button onclick="window.location.href='trial.html'">Try</button>
+</div>
+</div>
+
+<div class="post">
+<video controls autoplay muted loop width="100%">
+<source src="party.mp4" type="video/mp4">
+</video>
+<h3>Party Outfit</h3>
+<div class="actions">
+<button onclick="like(this)">❤️ Like</button>
+<button onclick="window.location.href='trial.html'">Try</button>
+</div>
+</div>
+
+</div>
+
+<script>
+
+function like(btn){
+btn.innerHTML="❤️ Liked";
+}
+function goHome(){
+window.location.href='index.html';
+}
+
+function goTrial(){
+window.location.href='trial.html';
+}
+
+function goFeed(){
+window.location.href='feed.html';
+}
+
+function goMsg(){
+window.location.href='message.html';
+}
+
+</script>
+
+</body>
+</html>
